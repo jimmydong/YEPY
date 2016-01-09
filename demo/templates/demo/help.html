@@ -1,0 +1,12 @@
+{% extends 'template_base_bootstrap.html' %}
+
+{% block title %} DEMO {% endblock %}
+
+{% block content %}
+<h4>这是一个参数处理的演示</h4>
+{% if out.alert %}
+<p class="bg-danger">传入了alert参数：{{out.alert}}</p>
+{% else %}
+<p class="bg-success">没有参数</p>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	{% block header %}
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>{% block title %}YEPY{% endblock %}</title>
+		{% import 'template_header_bootstrap.html' as header %}
+		{{ header.show() }}
+	</head>
+	{% endblock %}
+<body>
+
+{% block body %}
+<div class="container">
+	{% block navi %}
+	<h1>YEPY基础模板</h1>
+	<div><a href="/">返回首页</a> <a href="/demo">DEMO</a> <a href="/demo/help">HELP</a> <a href="/demo/help/?alert=just_a_test">ALERT</a><hr/></div>
+	{% endblock%}
+	{% block content %}
+	<p>
+	欢迎使用YEPY。请参考：<a href="http://docs.jinkan.org/docs/flask/index.html">Flask框架</a>，<a href="http://docs.jinkan.org/docs/jinja2/templates.html">Jinja2模板</a>。<br/>
+	<a href="http://flask.pocoo.org/extensions/">浏览更多可用模块</a>
+	</p>
+	<img src="/static/demo.jpg">
+	{% endblock %}
+</div>
+{% endblock %}
+
+{% block footer %}
+	{% import 'template_footer_bootstrap.html' as footer %}
+	{{ footer.show() }}
+{% endblock %}
+</body>
+</html>
