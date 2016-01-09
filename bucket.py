@@ -30,12 +30,12 @@ class ConfigG(dict):
 
         '''
         if not args:
-            raise TypeError("descriptor '__init__' of 'OrderedDict' object "
-                            "needs an argument")
-        self = args[0]
-        args = args[1:]
-        if len(args) > 1:
-            raise TypeError('expected at most 1 arguments, got %d' % len(args))
+            pass
+        else:
+            self = args[0]
+            args = args[1:]
+            if len(args) > 1:
+                raise TypeError('expected at most 1 arguments, got %d' % len(args))
         try:
             self.__root
         except AttributeError:
