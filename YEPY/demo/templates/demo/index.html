@@ -1,0 +1,16 @@
+{% extends 'template_base_bootstrap.html' %}
+
+{% block title %} DEMO {% endblock %}
+
+{% block content %}
+<h3>这是一个Blueprint的演示</h3>
+<p><a href="http://docs.jinkan.org/docs/flask/blueprints.html#blueprints">蓝图模块参考</a>
+<p>请注意模板引用的位置</p>
+{{ out.time }}
+{{out.data}}
+<hr>
+<a href="/demo/?do=1">1</a> | 
+<a href="/demo/?do=2">2</a> | 
+<a href="/demo/?do=3">3</a> | 
+<a href="/demo/?do=4">4</a>
+{% endblock %}
