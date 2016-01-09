@@ -13,11 +13,17 @@ import _abcoll
 _controller = ''
 _action = ''
 cache = Cache() 
+cache2 = Cache() 
+cache3 = Cache() 
 db = SQLAlchemy()
+db2 = SQLAlchemy()
+db3 = SQLAlchemy()
 mongo = PyMongo()
+mongo2 = PyMongo()
+mongo3 = PyMongo()
 debug = debug.Debug()
 class ConfigG(dict):
-    def __init__(*args, **kwds):
+    def __init__(self, *args, **kwds):
         '''Initialize an ordered dictionary.  The signature is the same as
         regular dictionaries, but keyword arguments are not recommended because
         their insertion order is arbitrary.
@@ -171,7 +177,7 @@ class ConfigG(dict):
         'Return state information for pickling'
         items = [[k, self[k]] for k in self]
         inst_dict = vars(self).copy()
-        for k in vars(OrderedDict()):
+        for k in vars(ConfigG()):
             inst_dict.pop(k, None)
         if inst_dict:
             return (self.__class__, (items,), inst_dict)
