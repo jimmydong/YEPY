@@ -10,6 +10,7 @@
 from flask import Blueprint, render_template, abort, request, current_app, make_response
 from . import *
 import bucket
+import config
 import os
 ### 以上为必备的模块，应用所需模块请在此下继续添加 ###
 import time
