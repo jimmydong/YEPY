@@ -12,14 +12,13 @@ import bucket # 加载全局变量
 from flask import Flask, render_template, request, make_response
 from flask_debugtoolbar import DebugToolbarExtension
 from flask_uploads import configure_uploads, UploadSet
-import datetime
 import cgi
 import os
 
 #The Flask Application
 app = config.createApp()
 if app.config['DEBUG']:
-    bucket.debug.start()
+    bucket.debug.start()  # @UndefinedVariable
 
 #初始化核心插件
 if app.config['CACHE_ENABLE']:
@@ -36,14 +35,14 @@ configure_uploads(app,(photos,files))
 # Framework
 @app.before_request
 def before_request():
-    bucket.debug.reload()
+    bucket.debug.reload()  # @UndefinedVariable
     pass
 @app.after_request
 def after_request(response):
     if request.url_root.find('/static/') > -1:
         return response
     bucket.debug.time('after')
-    headers = bucket.debug.show()
+    headers = bucket.debug.show()  # @UndefinedVariable
     if len(headers) > 0:
         for key in headers:
             response.headers[key] = headers[key]
@@ -70,17 +69,17 @@ def uploadPhoto():
 #异常处理
 @app.errorhandler(404)
 def not_found(error):
-  out = repr(app.url_map)
-  response = make_response('页面未找到 page not found <br/><pre>' + cgi.escape(out) + '</pre>', 404)
-  return response
+    out = repr(app.url_map)
+    response = make_response('页面未找到 page not found <br/><pre>' + cgi.escape(out) + '</pre>', 404)
+    return response
 
 @app.route("/test")
 def test():
-  return "Hello World!"
+    return "Hello World!"
 
 if __name__ == '__main__':
-  pid = os.getpid()
-  pidfile = file("application.pid","w")
-  pidfile.write(str(pid))
-  pidfile.close()
-  app.run(host=app.config['APP_HOST'],port=app.config['APP_PORT'])
+    pid = os.getpid()
+    pidfile = file("application.pid","w")
+    pidfile.write(str(pid))
+    pidfile.close()
+    app.run(host=app.config['APP_HOST'],port=app.config['APP_PORT'])

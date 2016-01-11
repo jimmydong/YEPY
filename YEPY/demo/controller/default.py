@@ -24,7 +24,7 @@ def main(action):
     #init
     bucket._controller = controller
     bucket._action = action
-    out = init()
+    out = init()  # @UndefinedVariable
     
     #add your code here
     bucket.debug.log('haha')
@@ -36,4 +36,4 @@ def main(action):
         pass 
         
     #finish
-    return show(out)
+    return show(out)  # @UndefinedVariable
