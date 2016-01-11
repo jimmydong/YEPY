@@ -60,7 +60,8 @@ def main(action):
             out.data = "Mysql works OK -- %s" % t.name
         elif do == '4':
             #使用Mongo
-            t = bucket.mongo.db.test.find({"name":"test"}).limit(1)
+            bucket.mongo.db.test.insert({"name":"test123","data":"hello"})
+            t = bucket.mongo.db.test.find({"name":"test123"}).limit(1)
             out.data = 'Mongo: '
             for item in t:
                 out.data = out.data + repr(item)
