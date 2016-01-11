@@ -12,7 +12,7 @@ import logging
 from logging.handlers import RotatingFileHandler
 import sys
 reload(sys)
-sys.setdefaultencoding('utf-8')
+sys.setdefaultencoding('utf-8')  # @UndefinedVariable
 import os
 
 _yepy_application_version = '1.0b'
