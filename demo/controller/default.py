@@ -27,7 +27,6 @@ def main(action):
     out = init()  # @UndefinedVariable
     
     #add your code here
-    bucket.debug.log('haha')
     if action == 'index':
         #do something
         pass
