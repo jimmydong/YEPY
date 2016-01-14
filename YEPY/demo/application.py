@@ -12,7 +12,7 @@ import bucket # 加载全局变量
 from flask import Flask, render_template, request, make_response
 from flask_debugtoolbar import DebugToolbarExtension
 from flask_uploads import configure_uploads, UploadSet
-from worker import WorkerThread
+from job import job
 import cgi
 import os
 import time
@@ -79,31 +79,28 @@ def not_found(error):
 def test():
     return "Hello World!"
 
-bucket.G.counter = 0
-def job():
-    for i in range(0,10):
-        print_r(i)
-        bucket.G.counter = i
-        time.sleep(1)
-
-
 if __name__ == '__main__':
     #设置PID
+    pid_file = "application.pid"
     pid = os.getpid()
-    pidfile = file("application.pid","w")
+    pidfile = file(pid_file,"w")
     pidfile.write(str(pid))
     pidfile.close()
     
     #启动工作线程
-    worker = WorkerThread(target=job)
-    worker.setDaemon(True)
-    worker.start()
+    if bucket.worker.checkStatus() == False:
+        job = bucket.worker.setJob(job)
+        job.setDaemon(True)
+        job.start()
+        bucket.worker.checkStatus()
     
     #启动监听
-    app.run(host=app.config['APP_HOST'],port=app.config['APP_PORT'])
+    app.run(host=app.config['APP_HOST'],port=app.config['APP_PORT'],use_reloader=app.config['USE_RELOADER'])
     
     #程序结束
-    if worker.isAlive():
-        print("warnning: worker尚未完成，提前终止")
-    #os.remove("application.pid")
-    print(" ---=== application finished! ===---")
+    if bucket.worker.checkStatus() == 'running':
+        print("warnning: worker is still not finished, force abort.")
+    if(os.path.exists(pid_file)):
+        os.remove(pid_file)
+    print(" ---=== application finished at %s! ===---" % time.strftime("%Y-%m-%d %H:%M:%S"))
+    
