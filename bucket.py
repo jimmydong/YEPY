@@ -6,6 +6,7 @@ from flask.ext.cache import Cache
 from flask.ext.pymongo import PyMongo
 from flask.ext.sqlalchemy import SQLAlchemy
 from yepy import debug
+from worker import Worker
 from _abcoll import *
 import _abcoll
 
@@ -22,6 +23,8 @@ mongo = PyMongo()
 mongo2 = PyMongo()
 mongo3 = PyMongo()
 debug = debug.Debug()
+worker = Worker()
+
 class ConfigG(dict):
     def __init__(self, *args, **kwds):
         '''Initialize an ordered dictionary.  The signature is the same as

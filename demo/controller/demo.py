@@ -68,6 +68,7 @@ def main(action):
                 out.data = out.data + repr(item)
         else:
             out.data = "展开 firebug 查看 debug 信息 ， 点击右侧FDT查看 logger 信息"
+            out.data = out.data + "<br/>\n 工作线程信息： %s" % bucket.G.counter
             #使用logger
             current_app.logger.debug('test logger')
             #使用Debug

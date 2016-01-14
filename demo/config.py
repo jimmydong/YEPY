@@ -30,6 +30,7 @@ class Config(object):
     APP_HOST = '0.0.0.0'
     APP_PORT = 8888
     DEBUG = False
+    USE_RELOADER = False # 禁止代码自动更新，防止运行多次
     TESTING = False
     SECRET_KEY = "01234567890@2015"
     DEBUG_TB_INTERCEPT_REDIRECTS = False
@@ -63,6 +64,8 @@ class Config(object):
     
 class DevelopmentConfig(Config):
     DEBUG = True
+    USE_RELOADER = True
+
     DEBUG_TB_PROFILER_ENABLED = True  #注意：极大影响性能
     LOG_FILE = 'log/logger.txt'
     LOG_SIZE = 10000
