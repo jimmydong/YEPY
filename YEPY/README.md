@@ -32,7 +32,7 @@ add followings to %python_lib_path%/site.py
 
 ```
 ######################################################################
-#  hack by jimmy.dong@gmail.com
+#  hack JDPT
 import jdpt
 ######################################################################
 ```
