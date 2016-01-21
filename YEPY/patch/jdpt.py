@@ -2,6 +2,8 @@
 # JDPT (JimmyDong's Python Toolkits) 
 # by jimmy.dong@gmail.com 2016.1.8
 import sys
+reload(sys)
+sys.setdefaultencoding('utf-8')  # @UndefinedVariable
 import time
 import pprint
 version = 0.1
