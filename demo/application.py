@@ -28,7 +28,7 @@ if app.config['CACHE_ENABLE']:
     bucket.cache.init_app(app, config={'CACHE_TYPE':'memcached'}) # 'simple' | 'memcached' | 'redis'
 if app.config['SQLALCHEMY_DATABASE_URI']:
     bucket.db.init_app(app)
-if app.config['MYSQL_DIRECT_ACCESS']:
+if app.config['MYSQL_DA_ENABLE']:
     bucket.mysql = MySQLdb.connect(host=app.config['MYSQL_DA_HOST'],port=app.config['MYSQL_DA_PORT'],
                                    user=app.config['MYSQL_DA_USER'],passwd=app.config['MYSQL_DA_PASSWD'],
                                    db=app.config['MYSQL_DA_DB'])
