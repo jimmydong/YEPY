@@ -59,7 +59,7 @@ class Config(object):
     MYSQL_DIRECT_ACCESS = True #直接数据库操作，不建议使用
     MYSQL_HOST = "localhost"
     MYSQL_PORT = 3306
-    MYSQL_UESR = "root"
+    MYSQL_USER = "root"
     MYSQL_PASSWD = ""
     MYSQL_DB = "test"
     
@@ -87,7 +87,7 @@ class ProductionConfig(Config):
                         }
     MYSQL_HOST = "db02"
     MYSQL_PORT = 8307
-    MYSQL_UESR = "root"
+    MYSQL_USER = "root"
     MYSQL_PASSWD = "sfKpN3KEhVXrm6XU"
     MYSQL_DB = "test"
     
