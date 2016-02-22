@@ -31,7 +31,7 @@ if app.config['SQLALCHEMY_DATABASE_URI']:
 if app.config['MYSQL_DA_ENABLE']:
     bucket.mysql = MySQLdb.connect(host=app.config['MYSQL_DA_HOST'],port=app.config['MYSQL_DA_PORT'],
                                    user=app.config['MYSQL_DA_USER'],passwd=app.config['MYSQL_DA_PASSWD'],
-                                   db=app.config['MYSQL_DA_DB'])
+                                   db=app.config['MYSQL_DA_DB'],charset="utf8")
 if app.config['MONGO_URI']:
     bucket.mongo.init_app(app)
 toolbar = DebugToolbarExtension(app)
