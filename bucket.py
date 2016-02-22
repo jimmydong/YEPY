@@ -51,8 +51,7 @@ class ConfigG(dict):
         try:
             return dict.__getitem__(self, name)
         except:
-            #raise AttributeError()
-            return False
+            raise AttributeError()
 
     def __setitem__(self, key, value, dict_setitem=dict.__setitem__):
         'od.__setitem__(i, y) <==> od[i]=y'
