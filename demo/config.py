@@ -43,6 +43,7 @@ class Config(object):
     CACHE_REDIS_PORT = 6379
     CACHE_REDIS_PASSWORD = "yishengDaojia@2015ASDFGHJKL12345"
     
+    ENABLE_DB_ACCESS = True
     SQLALCHEMY_DATABASE_URI = "mysql://localhost:3306/test"
     SQLALCHEMY_BINDS = {
                         'master':   'mysql://localhost:3306/test',
