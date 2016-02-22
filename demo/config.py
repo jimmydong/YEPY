@@ -85,6 +85,11 @@ class ProductionConfig(Config):
                         'master':   'mysql://root:sfKpN3KEhVXrm6XU@db02:8307/test',
                         'slave':    'mysql://root:sfKpN3KEhVXrm6XU@db02:8307/test'
                         }
+    MYSQL_HOST = "db02"
+    MYSQL_PORT = 8307
+    MYSQL_UESR = "root"
+    MYSQL_PASSWD = "sfKpN3KEhVXrm6XU"
+    MYSQL_DB = "test"
     
 # 应用模块
 blueprints = [
