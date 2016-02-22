@@ -16,6 +16,7 @@ from job import job
 import cgi
 import os
 import time
+import MySQLdb
 
 #The Flask Application
 app = config.createApp()
@@ -27,6 +28,10 @@ if app.config['CACHE_ENABLE']:
     bucket.cache.init_app(app, config={'CACHE_TYPE':'memcached'}) # 'simple' | 'memcached' | 'redis'
 if app.config['SQLALCHEMY_DATABASE_URI']:
     bucket.db.init_app(app)
+if app.config['MYSQL_DIRECT_ACCESS']:
+    bucket.mysql = MySQLdb.connect(host=app.config['MYSQL_HOST'],port=app.config['MYSQL_PORT'],
+                                   user=app.config['MYSQL_USER'],passwd=app.config['MYSQL_PASSWD'],
+                                   db=app.config['MYSQL_DB'])
 if app.config['MONGO_URI']:
     bucket.mongo.init_app(app)
 toolbar = DebugToolbarExtension(app)
