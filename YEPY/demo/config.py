@@ -20,7 +20,7 @@ _yepy_application_version = '1.0b'
 _yepy_path = '../'
 sys.path.append(_yepy_path) #如果yepy不在当前目录
 
-online = ['web01','web02','db01','db02','rd01']
+online = ['web01','web02','db01','db02','rd01','docker01','docker02','docker03']
 if os.getenv('HOSTNAME') in online:
     product = True
 else:
