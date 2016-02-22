@@ -66,6 +66,12 @@ def main(action):
             out.data = 'Mongo: '
             for item in t:
                 out.data = out.data + repr(item)
+        elif do == '5':
+            #直接Mysql操作
+            cr = bucket.mysql.cursor()
+            cr.execute("select * from test where id=1");
+            data = cr.fetchone()
+            out.data = "Mysql Direct Access OK -- %s" % data.name
         else:
             out.data = "展开 firebug 查看 debug 信息 ， 点击右侧FDT查看 logger 信息"
             out.data = out.data + "<br/>\n 工作线程信息： %s" % bucket.G.counter
