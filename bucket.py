@@ -9,13 +9,14 @@ from yepy import debug
 from worker import Worker
 from _abcoll import *
 import _abcoll
+import MySQLdb
 
 #全局变量
 _controller = ''
 _action = ''
 cache = Cache() 
 cache2 = Cache() 
-cache3 = Cache() 
+cache3 = Cache()
 db = SQLAlchemy()
 db2 = SQLAlchemy()
 db3 = SQLAlchemy()
@@ -24,6 +25,7 @@ mongo2 = PyMongo()
 mongo3 = PyMongo()
 debug = debug.Debug()
 worker = Worker()
+mysql = None
 
 class ConfigG(dict):
     def __init__(self, *args, **kwds):
