@@ -56,12 +56,12 @@ class Config(object):
     MONGO_SOCKET_TIMEOUT_MS = "3000"
     MONGO_CONNECT_TIMEOUT_MS = "3000"
     
-    MYSQL_DIRECT_ACCESS = True #直接数据库操作，不建议使用
-    MYSQL_HOST = "localhost"
-    MYSQL_PORT = 3306
-    MYSQL_USER = "root"
-    MYSQL_PASSWD = ""
-    MYSQL_DB = "test"
+    MYSQL_DA_ENABLE = True #直接数据库操作，不建议使用
+    MYSQL_DA_HOST = "localhost"
+    MYSQL_DA_PORT = 3306
+    MYSQL_DA_USER = "root"
+    MYSQL_DA_PASSWD = ""
+    MYSQL_DA_DB = "test"
     
     UPLOADS_DEFAULT_DEST = "static/upload"
     UPLOADS_DEFAULT_URL = "/upload"
@@ -85,11 +85,11 @@ class ProductionConfig(Config):
                         'master':   'mysql://root:sfKpN3KEhVXrm6XU@db02:8307/test',
                         'slave':    'mysql://root:sfKpN3KEhVXrm6XU@db02:8307/test'
                         }
-    MYSQL_HOST = "db02"
-    MYSQL_PORT = 8307
-    MYSQL_USER = "root"
-    MYSQL_PASSWD = "sfKpN3KEhVXrm6XU"
-    MYSQL_DB = "test"
+    MYSQL_DA_HOST = "db02"
+    MYSQL_DA_PORT = 8307
+    MYSQL_DA_USER = "root"
+    MYSQL_DA_PASSWD = "sfKpN3KEhVXrm6XU"
+    MYSQL_DA_DB = "test"
     
 # 应用模块
 blueprints = [
