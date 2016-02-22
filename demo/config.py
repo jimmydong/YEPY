@@ -11,6 +11,7 @@ from werkzeug.utils import import_string
 import logging
 from logging.handlers import RotatingFileHandler
 import sys
+from pip._vendor.distlib._backport.tarfile import TUREAD
 reload(sys)
 sys.setdefaultencoding('utf-8')  # @UndefinedVariable
 import os
@@ -43,7 +44,6 @@ class Config(object):
     CACHE_REDIS_PORT = 6379
     CACHE_REDIS_PASSWORD = "yishengDaojia@2015ASDFGHJKL12345"
     
-    ENABLE_DB_ACCESS = True
     SQLALCHEMY_DATABASE_URI = "mysql://localhost:3306/test"
     SQLALCHEMY_BINDS = {
                         'master':   'mysql://localhost:3306/test',
@@ -55,6 +55,13 @@ class Config(object):
     MONGO_URI = "mongodb://yisheng:yisheng%402015@211.152.8.45:27017/yisheng"
     MONGO_SOCKET_TIMEOUT_MS = "3000"
     MONGO_CONNECT_TIMEOUT_MS = "3000"
+    
+    MYSQL_DIRECT_ACCESS = True #直接数据库操作，不建议使用
+    MYSQL_HOST = "localhost"
+    MYSQL_PORT = 3306
+    MYSQL_UESR = "root"
+    MYSQL_PASSWD = ""
+    MYSQL_DB = "test"
     
     UPLOADS_DEFAULT_DEST = "static/upload"
     UPLOADS_DEFAULT_URL = "/upload"
