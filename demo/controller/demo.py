@@ -68,10 +68,11 @@ def main(action):
                 out.data = out.data + repr(item)
         elif do == '5':
             #直接Mysql操作
-            cr = bucket.mysql.cursor()
+            db = bucket.mysql;
+            cr = db.cursor()
             cr.execute("select * from test where id=1");
-            data = cr.fetchone()
-            out.data = "Mysql Direct Access OK -- %s" % data.name
+            data = cr.fetchone() #注意，返回值为turple格式
+            out.data = "Mysql Direct Access OK -- %s" % data[2]
         else:
             out.data = "展开 firebug 查看 debug 信息 ， 点击右侧FDT查看 logger 信息"
             out.data = out.data + "<br/>\n 工作线程信息： %s" % bucket.G.counter
