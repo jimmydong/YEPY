@@ -53,7 +53,6 @@ class Worker():
     status = False
     
     def setJob(self, job):
-        print_r(self.thread)
         if self.thread and self.thread.isAlive():
             #已经有进程在运行
             return False
