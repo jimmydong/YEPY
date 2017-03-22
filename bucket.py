@@ -167,7 +167,7 @@ class ConfigG(dict):
 
     def __repr__(self, _repr_running={}):
         'od.__repr__() <==> repr(od)'
-        call_key = id(self)
+        call_key = id(self), _get_ident()
         if call_key in _repr_running:
             return '...'
         _repr_running[call_key] = 1
