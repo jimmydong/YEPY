@@ -23,6 +23,8 @@ if os.getenv('HOSTNAME') in online:
 else:
     product = False
 
+product = False  #强制设置为调试模式
+
 #Flask配置
 class Config(object):
     APP_NAME = 'YEPY-Demo'
