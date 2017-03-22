@@ -26,23 +26,15 @@ def main(action):
     out = init()  # @UndefinedVariable
     
     #add your code here
-    if request.method == 'POST':
-        password = request.form['password']
-    else:
-        password = ''
-    if password == 'yisheng@2018':
-        out.info = "<pre> ----==== YEPY Demo by jimmy.dong@gmail.com ====---- \n 开始运行于： %s \n 累积执行： %d  \n 运行成功： %d </pre>" % (bucket.G.begin_time, bucket.G.counter, bucket.G.counter_success)
-        out.data = " ----==== current_app.config ====----  \n"
-        if action == 'index':
-            for k in current_app.config:
-                out.data = out.data + " %s  -   %s \n" % (k,current_app.config[k])
-            pass
-        else: 
-            out.data = " --- error Can't find the action."
-            pass 
-    else:
-        out.info = "<form action=/ method=post><input type=text name=password size=20><input type=submit value='ok'></form>"
-        out.data = "请输入密码 (提示： y******@***8)"
+    out.info = "<pre> ----==== YEPY Demo by jimmy.dong@gmail.com ====---- \n 开始运行于： %s \n 累积执行： %d  \n 运行成功： %d </pre>" % (bucket.G.begin_time, bucket.G.counter, bucket.G.counter_success)
+    out.data = " ----==== current_app.config ====----  \n"
+    if action == 'index':
+        for k in current_app.config:
+            out.data = out.data + " %s  -   %s \n" % (k,current_app.config[k])
+        pass
+    else: 
+        out.data = " --- error Can't find the action."
+        pass 
         
     #finish
     return show(out)  # @UndefinedVariable
