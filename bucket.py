@@ -2,9 +2,9 @@
 """
 YEPY 全局变量
 """
-from flask.ext.cache import Cache
-from flask.ext.pymongo import PyMongo
-from flask.ext.sqlalchemy import SQLAlchemy
+from flask_cache import Cache
+from flask_pymongo import PyMongo
+from flask_sqlalchemy import SQLAlchemy
 from yepy import debug
 from worker import Worker
 from _abcoll import *
