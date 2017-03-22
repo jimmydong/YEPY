@@ -13,7 +13,7 @@ sys.setdefaultencoding('utf-8')  # @UndefinedVariable
 import os
 
 _yepy_application_version = '1.0b'
-_yepy_path = '../yepy'
+_yepy_path = '../'
 sys.path.append(_yepy_path) #如果yepy不在当前目录
 
 #正式服务器配置，自动识别测试环境
@@ -58,7 +58,7 @@ class ProductionConfig(Config):
 # 应用模块
 blueprints = [
               'controller.default:blueprint',
-              'controller.udf:blueprint'
+              'controller.demo:blueprint'
               ]
 def createApp():
     app = Flask(__name__)
