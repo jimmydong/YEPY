@@ -1,6 +1,6 @@
 # YEPY - Yep! Easy Python
 
-It's very small web framework for python. Current version is 0.01beta.
+It's very small web framework for python. Current version is 1.0beta.
 
 If you want join us, mailto://jimmy.dong@gmail.com
 

@@ -1,2 +1,14 @@
 {% extends 'template_base_bootstrap.html' %}
-{% block title %} index {% endblock %}
+{% block body %}
+<div class="container">
+	{% block navi %}
+	<h1>YEPF DEMO</h1>
+	{% endblock%}
+	{% block content %}
+	{{out.info|safe}}
+	<pre>
+	{{out.data}}
+	</pre>
+	{% endblock %}
+</div>
+{% endblock %}
