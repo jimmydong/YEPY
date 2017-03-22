@@ -13,7 +13,7 @@ sys.setdefaultencoding('utf-8')  # @UndefinedVariable
 import os
 
 _yepy_application_version = '1.0b'
-_yepy_path = '../YEPY'
+_yepy_path = '../yepy'
 sys.path.append(_yepy_path) #如果yepy不在当前目录
 
 #正式服务器配置，自动识别测试环境
