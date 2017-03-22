@@ -20,6 +20,9 @@ If you want join us, mailto://jimmy.dong@gmail.com
 ## Prepare:
 
 	$ pip2.7 install ... [logging, flask, flask-debugtoolbar, flask-uploads, flask-cache, flask-pymongo, flask-sqlalchemy, python-memcached, pymongo, SQLAlchemy, yapf] 
+	or
+	./yepy_init.sh  (centos7环境测试通过)
+	
 
 推荐安装： ipython, notebook
 
